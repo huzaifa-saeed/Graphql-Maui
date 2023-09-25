@@ -61,9 +61,11 @@
 
     <ItemGroup>
       <None Remove="Services\" />
+      <None Remove="Services\GraphQL\Operations\" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Services\" />
       <Folder Include="Services\GraphQL\" />
+      <Folder Include="Services\GraphQL\Operations\" />
     </ItemGroup>
 </Project>

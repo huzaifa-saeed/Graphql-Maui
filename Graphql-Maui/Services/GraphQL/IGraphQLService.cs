@@ -1,12 +1,13 @@
 ﻿
 using System;
 using System.Runtime.CompilerServices;
+using StrawberryShake;
 
 namespace Graphql_Maui.Services.GraphQL
 {
 	public interface IGraphQLService
 	{
-        Task<IReadOnlyList<IAssetInfo>> GetAssets();
+        IObservable<IOperationResult<IGetAssetsResult>> GetAssets();
     }
 }
 

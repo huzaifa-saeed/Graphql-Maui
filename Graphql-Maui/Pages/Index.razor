@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-@inject IGraphQLService _IGraphQLService;
+@inject IGraphQLService GraphQLService;
 
 
 
@@ -23,11 +23,12 @@ Getting Crypto Prices using GraphQL:
 
     protected override  void OnInitialized()
     {
-        Device.InvokeOnMainThreadAsync(async () => {
-            _assets = await _IGraphQLService.GetAssets();
-            InvokeAsync(this.StateHasChanged);
-        });
-
+        _storeSession = GraphQLService?.GetAssets().Select(t => t.Data!.Assets!.Nodes)
+           .Subscribe(result =>
+           {
+               _assets = result;
+               InvokeAsync(this.StateHasChanged);
+           });
     }
 
     public void Dispose()
