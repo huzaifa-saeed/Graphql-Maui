@@ -56,6 +56,14 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="StrawberryShake.Blazor" Version="13.5.1" />
         <PackageReference Include="System.Reactive" Version="6.0.0" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Services\" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Services\" />
+      <Folder Include="Services\GraphQL\" />
+    </ItemGroup>
 </Project>

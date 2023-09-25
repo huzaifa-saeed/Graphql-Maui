@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Graphql_Maui.Data;
+using Graphql_Maui.Services.GraphQL;
 
 namespace Graphql_Maui;
 
@@ -26,7 +27,9 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
-		builder.Services.AddSingleton<WeatherForecastService>();
+        // Add Services
+        builder.Services.AddSingleton<WeatherForecastService>();
+        builder.Services.AddSingleton<IGraphQLService, GraphQLService>();
 
         builder.Services
     .AddMauiGraphqlAppClient()
